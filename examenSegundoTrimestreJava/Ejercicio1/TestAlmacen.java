@@ -5,6 +5,7 @@ import java.io.IOException;
 import examenSegundoTrimestreJava.Ejercicio1.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.excepciones.ParametroNoNumericoException;
 import examenSegundoTrimestreJava.Ejercicio1.excepciones.ValorNoPositivoException;
+import utiles.Menu;
 import utiles.Teclado;
 
 /**
@@ -27,28 +28,46 @@ public class TestAlmacen {
 			NumberFormatException, IOException, IvaInvalidoException {
 
 		// Algunas instancias predefinidas.
-		// almacen.darAlta("Coca-Cola", 30, 45, 68, "general");
-		// almacen.darAlta("Nestea", 22, 35, 40, "reducido");
-		// almacen.darAlta("Fanta", 33, 42, 53, "super reducido");
+		almacen.darAlta("Coca-Cola", 30, 45, 68, "general");
+		almacen.darAlta("Nestea", 22, 35, 40, "reducido");
+		almacen.darAlta("Fanta", 33, 42, 53, "super reducido");
 
 		ejecutaMenu();
 
 	}
 
 	/**
-	 * metodo vacío que muestra el menu del almacen
+	 * Menú principal de la aplicación
 	 */
-	private static void mostrarMenu() {
+	static Menu menuPrincipal = new Menu(" -- ALMACÉN -- ", new String[] { "Mostrar el listado.", "Dar de alta.",
+			"Dar de baja.", "Modificación.", "Entrada de mercancía.", "Salida de mercancía.", "Salir." });
 
-		System.out.println("ALMACEN" + "\n=========" + "\n1. Listado" + "\n2. Alta" + "\n3. Baja" + "\n4. Modificación"
-				+ "\n5. Entrada de mercancía" + "\n6. Salida de mercancía" + "\n7. Salir" + "\n");
+	/**
+	 * Menú para elegir el IVA del artículo
+	 */
+	static Menu menuIVA = new Menu(" -- IVA -- ", new String[] { "General", "Reducido", "Súper reducido" });
 
-	}
+	/**
+	 * metodo que muestra el menu del almacen
+	 */
+	// private static void mostrarMenu() {
+	//
+	// System.out.println("ALMACEN" + "\n=========" + "\n1. Listado" + "\n2. Alta" +
+	// "\n3. Baja" + "\n4. Modificación"
+	// + "\n5. Entrada de mercancía" + "\n6. Salida de mercancía" + "\n7. Salir" +
+	// "\n");
+	//
+	// }
 
-	private static void menuIva() {
-
-		System.out.println("IVAs" + "\n=========" + "\n1. General" + "\n2. Reducido" + "\n3. Super reducido\n");
-	}
+	/**
+	 * método para elegir el IVA del artículo
+	 */
+	// private static void menuIva() {
+	//
+	// System.out.println("IVAs" + "\n=========" + "\n1. General" + "\n2. Reducido"
+	// + "\n3. Super reducido\n");
+	//
+	// }
 
 	/**
 	 * método que devuelve un entero, el cual define la opción del menú
@@ -56,18 +75,19 @@ public class TestAlmacen {
 	 * @return int
 	 * @throws ParametroNoNumericoException
 	 */
-	private static int elegirOpcion() throws ParametroNoNumericoException {
-
-		try {
-			int opcion = Teclado.leerEntero("\nElige una opción: ");
-			return opcion;
-		} catch (Exception e) { // si opcion no es numérico, salta el catch
-
-			System.err.println("Error al introducir el parámetro. Has de introducir valores numéricos.");
-			return 0;
-		}
-
-	}
+	// private static int elegirOpcion() throws ParametroNoNumericoException {
+	//
+	// try {
+	// int opcion = Teclado.leerEntero("\nElige una opción: ");
+	// return opcion;
+	// } catch (Exception e) { // si opcion no es numérico, salta el catch
+	//
+	// System.err.println("Error al introducir el parámetro. Has de introducir
+	// valores numéricos.");
+	// return 0;
+	// }
+	//
+	// }
 
 	/**
 	 * método vacio que finaliza el programa
@@ -90,12 +110,12 @@ public class TestAlmacen {
 	private static void ejecutaMenu()
 			throws ParametroNoNumericoException, ValorNoPositivoException, NumberFormatException, IOException {
 
-		int opcion;
+		// int opcion;
 		do {
-			mostrarMenu();
-			opcion = elegirOpcion();
+			// mostrarMenu();
+			// opcion = elegirOpcion();
 
-			switch (opcion) {
+			switch (menuPrincipal.gestionar()) {
 
 			case 1:
 				almacen.muestraListado();
@@ -130,7 +150,8 @@ public class TestAlmacen {
 				System.out.println("No introdujiste una opción correcta. Inténtalo de nuevo.\n");
 				break;
 			}
-		} while (opcion != 7);
+			// } while (opcion != 7);
+		} while (true);
 
 	}
 
@@ -152,7 +173,6 @@ public class TestAlmacen {
 
 			int stock = Teclado.leerEntero("Cantidad del artículo en stock: ");
 
-			menuIva();
 			String IVA = elegirIVA();
 
 			almacen.darAlta(descripcion, precioCompra, precioVenta, stock, IVA);
@@ -205,7 +225,7 @@ public class TestAlmacen {
 
 			int stock = Teclado.leerEntero("Cantidad del artículo en stock: ");
 
-			menuIva();
+			// menuIva();
 			String IVA = elegirIVA();
 
 			almacen.modificarArticulo(articulo, descripcion, precioCompra, precioVenta, stock, IVA);
@@ -279,16 +299,17 @@ public class TestAlmacen {
 	 */
 	private static String elegirIVA() throws NumberFormatException, IOException {
 
-		int numeroIVA;
+		// int numeroIVA;
 
-		do {
-			numeroIVA = Teclado.leerEntero("Introduce el IVA del artículo(1, 2, o 3): ");
-			if (numeroIVA > 3 || numeroIVA < 1) {
-				System.out.println("Introduce un 1, un 2 o un 3 según el IVA correspondiente del artículo.");
-			}
-		} while (numeroIVA > 3 || numeroIVA < 1);
+		// do {
+		// numeroIVA = Teclado.leerEntero("Introduce el IVA del artículo(1, 2, o 3): ");
+		// if (numeroIVA > 3 || numeroIVA < 1) {
+		// System.out.println("Introduce un 1, un 2 o un 3 según el IVA correspondiente
+		// del artículo.");
+		// }
+		// } while (numeroIVA > 3 || numeroIVA < 1);
 
-		switch (numeroIVA) {
+		switch (menuIVA.gestionar()) {
 		case 1:
 			return "general";
 
@@ -298,7 +319,7 @@ public class TestAlmacen {
 		case 3:
 			return "super reducido";
 		}
-		
+
 		return null;
 	}
 
