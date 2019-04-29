@@ -20,24 +20,35 @@ excepción y capturarla.
 @version: 
 '''
 
+
 class Cuadrado(Rectangulo):
     
-    #constructor
-    def __init__(self, ancho, alto):
+    # constructor
+    def __init__(self, lado):
         
-        super().__init__(ancho, alto)
-        
-        if ((ancho != alto)):
-            raise TypeError()
-        
-    def compararCuadrados(self, Cuadrado):
-        
-        if(self.alto > Cuadrado.alto):
-            print("Tu cuadrado es más grande.")
-        elif(self.alto < Cuadrado.alto):
-            print("El otro cuadrado es más grande.")
-        else:
-            print("Los cuadrados son igual de grandes.")
-            
+        super().__init__(lado, lado)
+        self.lado = lado
     
+    @staticmethod
+    def compruebaLado(self, lado):
+        if lado > 10 or lado < 1:
+            raise TypeError("Lado no válido.", lado)
     
+    @property
+    def lado(self):
+        return self.__lado
+        
+    @lado.setter
+    def lado(self, lado):
+        Cuadrado.compruebaLado(self, lado)
+        self.__lado = lado
+    
+    #Sobrecarga de operadores (mayor que, menor que, igual que)
+    def __gt__(self, other):
+        return self.lado > other.lado
+    
+    def __lt__(self, other):
+        return self.lado < other.lado
+    
+    def __eq__(self, other):
+        return self.lado == other.lado

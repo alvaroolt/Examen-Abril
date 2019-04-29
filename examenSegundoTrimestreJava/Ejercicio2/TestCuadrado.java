@@ -25,16 +25,25 @@ public class TestCuadrado {
 
 		try {
 
-			Cuadrado cuadrado1 = new Cuadrado(5, 5);
-			Cuadrado cuadrado2 = new Cuadrado(7, 7);
-			Cuadrado cuadrado3 = new Cuadrado(5, 5);
+			Cuadrado cuadrado1 = new Cuadrado(6);
+			Cuadrado cuadrado2 = new Cuadrado(5);
+			// Cuadrado cuadrado3 = new Cuadrado(5);
 
-			cuadrado1.imprimirFigura();
-			cuadrado2.imprimirFigura();
+			System.out.println(cuadrado1);
+			System.out.println(cuadrado2);
 
-			cuadrado1.compararCuadrados(cuadrado2);
-			cuadrado2.compararCuadrados(cuadrado1);
-			cuadrado1.compararCuadrados(cuadrado3);
+			if (cuadrado1.compareTo(cuadrado2) == 0) {
+				System.out.println("Cuadrados 1 y 2 iguales.");
+
+			} else if (cuadrado1.compareTo(cuadrado2) < 0) {
+				System.out.println("Cuadrado 1 menor que cuadrado 2.");
+
+			} else {
+				System.out.println("Cuadrado 1 mayor que cuadrado 2.");
+			}
+
+			// cuadrado2.compareTo(cuadrado1);
+			// cuadrado1.compareTo(cuadrado3);
 
 		} catch (ArithmeticException e) {
 

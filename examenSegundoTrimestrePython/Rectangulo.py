@@ -23,31 +23,43 @@ class Rectangulo:
     
     # constructor
     def __init__(self, ancho, alto):
-        Rectangulo.compruebaAncho(self, ancho)
-        Rectangulo.compruebaAlto(self, alto)
+        #Rectangulo.compruebaAncho(self, ancho)
+        #Rectangulo.compruebaAlto(self, alto)
         self.ancho = ancho
         self.alto = alto
     
+    @staticmethod
     def compruebaAncho(self, ancho):
         if ancho > 10 or ancho < 1:
-            raise TypeError("Ancho no válido.")
+            raise TypeError("Ancho no válido.", ancho)
         
-    def compruebaAlto(self,alto):
+    @staticmethod
+    def compruebaAlto(self, alto):
         if alto > 10 or alto < 1:
-            raise TypeError("Alto no válido.")
+            raise TypeError("Alto no válido.", alto)
         
-    # getter ancho
-    def getAncho(self):
-        return self.ancho
+    @property
+    def ancho(self):
+        return self.__ancho #alternativa a getter en java
     
-    # getter alto
-    def getAlto(self):
-        return self.alto
+    @ancho.setter
+    def ancho(self, ancho):
+        Rectangulo.compruebaAncho(self, ancho)
+        self.__ancho = ancho
     
-    def imprimirFigura(self):
+    @property
+    def alto(self):
+        return self.__alto # alternativa a getter en java
+    
+    @alto.setter
+    def alto(self, alto):
+        Rectangulo.compruebaAlto(self, alto)
+        self.__alto = alto
+    
+    def __str__(self):
         mensaje =""
         
-        print("El rectángulo impreso es el siguiente:")
+        print("La figura impresa es la siguiente:")
         for i in range(self.alto):
             for j in range(self.ancho):
                 mensaje += "X"

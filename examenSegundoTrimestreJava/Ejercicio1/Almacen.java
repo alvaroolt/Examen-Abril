@@ -75,7 +75,6 @@ public class Almacen {
 	 */
 	public void darAlta(String descripcion, double precioCompra, double precioVenta, int stock, String IVA) throws ValorNoPositivoException, IvaInvalidoException {
 
-		//Articulo articulo = new Articulo(descripcion, precioCompra, precioVenta, stock);
 		almacen.add(new Articulo(descripcion, precioCompra, precioVenta, stock, IVA));
 
 	}
@@ -89,8 +88,6 @@ public class Almacen {
 		codigo--;
 		almacen.remove(codigo);
 		System.out.println("Artículo eliminado correctamente.");
-
-		// añadir excepción (en TestAlmacen no)
 
 	}
 

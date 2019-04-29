@@ -71,15 +71,18 @@ public class Rectangulo {
 		this.alto = alto;
 	}
 
-	public void imprimirFigura() {
+	@Override
+	public String toString() {
+		String mensaje = "";
 
-		System.out.println("El rectángulo impreso es el siguiente:");
+		System.out.println("La figura impresa es la siguiente:");
 		for (int i = 0; i < alto; i++) {
 			for (int j = 0; j < ancho; j++) {
-				System.out.print("X");
+				// System.out.print("X");
+				mensaje += "X";
 			}
-			System.out.println();
+			mensaje += "\n";
 		}
-		System.out.println();
+		return mensaje;
 	}
 }

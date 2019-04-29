@@ -48,48 +48,6 @@ public class TestAlmacen {
 	static Menu menuIVA = new Menu(" -- IVA -- ", new String[] { "General", "Reducido", "Súper reducido" });
 
 	/**
-	 * metodo que muestra el menu del almacen
-	 */
-	// private static void mostrarMenu() {
-	//
-	// System.out.println("ALMACEN" + "\n=========" + "\n1. Listado" + "\n2. Alta" +
-	// "\n3. Baja" + "\n4. Modificación"
-	// + "\n5. Entrada de mercancía" + "\n6. Salida de mercancía" + "\n7. Salir" +
-	// "\n");
-	//
-	// }
-
-	/**
-	 * método para elegir el IVA del artículo
-	 */
-	// private static void menuIva() {
-	//
-	// System.out.println("IVAs" + "\n=========" + "\n1. General" + "\n2. Reducido"
-	// + "\n3. Super reducido\n");
-	//
-	// }
-
-	/**
-	 * método que devuelve un entero, el cual define la opción del menú
-	 * 
-	 * @return int
-	 * @throws ParametroNoNumericoException
-	 */
-	// private static int elegirOpcion() throws ParametroNoNumericoException {
-	//
-	// try {
-	// int opcion = Teclado.leerEntero("\nElige una opción: ");
-	// return opcion;
-	// } catch (Exception e) { // si opcion no es numérico, salta el catch
-	//
-	// System.err.println("Error al introducir el parámetro. Has de introducir
-	// valores numéricos.");
-	// return 0;
-	// }
-	//
-	// }
-
-	/**
 	 * método vacio que finaliza el programa
 	 */
 	private static void finalizarPrograma() {
@@ -110,10 +68,7 @@ public class TestAlmacen {
 	private static void ejecutaMenu()
 			throws ParametroNoNumericoException, ValorNoPositivoException, NumberFormatException, IOException {
 
-		// int opcion;
 		do {
-			// mostrarMenu();
-			// opcion = elegirOpcion();
 
 			switch (menuPrincipal.gestionar()) {
 
@@ -150,7 +105,6 @@ public class TestAlmacen {
 				System.out.println("No introdujiste una opción correcta. Inténtalo de nuevo.\n");
 				break;
 			}
-			// } while (opcion != 7);
 		} while (true);
 
 	}
@@ -298,16 +252,6 @@ public class TestAlmacen {
 	 * @throws IOException
 	 */
 	private static String elegirIVA() throws NumberFormatException, IOException {
-
-		// int numeroIVA;
-
-		// do {
-		// numeroIVA = Teclado.leerEntero("Introduce el IVA del artículo(1, 2, o 3): ");
-		// if (numeroIVA > 3 || numeroIVA < 1) {
-		// System.out.println("Introduce un 1, un 2 o un 3 según el IVA correspondiente
-		// del artículo.");
-		// }
-		// } while (numeroIVA > 3 || numeroIVA < 1);
 
 		switch (menuIVA.gestionar()) {
 		case 1:

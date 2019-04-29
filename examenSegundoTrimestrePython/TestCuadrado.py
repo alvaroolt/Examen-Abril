@@ -23,13 +23,33 @@ import sys
 
 try:
     
-    cuadrado1 = Cuadrado(2, 2)
-    cuadrado2 = Cuadrado(4, 4)
+    cuadrado1 = Cuadrado(2)
+    cuadrado2 = Cuadrado(4)
+    cuadrado3 = Cuadrado(6)
+    cuadrado4 = Cuadrado(2)
 
-    print(cuadrado1.imprimirFigura())
-    print(cuadrado2.imprimirFigura())
+    print(cuadrado1)
+    print(cuadrado2)
+    print(cuadrado3)
+    print(cuadrado4)
     
-    print(cuadrado1.compararCuadrados(cuadrado2))
+    print("Cuadrado 2 mayor que cuadrado 1: " + str(cuadrado2>cuadrado1))
+    print("Cuadrado 2 mayor que cuadrado 3: " + str(cuadrado2>cuadrado3))
+    print("Cuadrado 1 mayor que cuadrado 3: " + str(cuadrado1>cuadrado3))
+    
+    print() #salto de línea
+    
+    print("Cuadrado 1 igual que cuadrado 2: " + str(cuadrado1==cuadrado2))
+    print("Cuadrado 1 igual que cuadrado 3: " + str(cuadrado1==cuadrado3))
+    print("Cuadrado 1 igual que cuadrado 4: " + str(cuadrado1==cuadrado4))
+    
+    print()
+    
+    print("Cuadrado 3 menor que cuadrado 2: " + str(cuadrado3<cuadrado2))
+    print("Cuadrado 1 menor que cuadrado 3: " + str(cuadrado1<cuadrado3))
+    print("Cuadrado 2 igual que cuadrado 2: " + str(cuadrado2<cuadrado2))
+    
+    #print(cuadrado1.compararCuadrados(cuadrado2))
     
 except TypeError:
     sys.stderr.write("ERROR: Los parámetros han de ser iguales.\n")

@@ -27,9 +27,10 @@ public class TestRectangulo {
 			Rectangulo rectangulo2 = new Rectangulo(8, 4);
 			Rectangulo rectangulo3 = new Rectangulo(5, 5);
 
-			rectangulo1.imprimirFigura();
-			rectangulo2.imprimirFigura();
-			rectangulo3.imprimirFigura();
+			System.out.println(rectangulo1);
+			System.out.println(rectangulo2);
+			System.out.println(rectangulo3);
+
 		} catch (ArithmeticException e) {
 			System.err.println("ERROR. " + e.getMessage());
 		}
