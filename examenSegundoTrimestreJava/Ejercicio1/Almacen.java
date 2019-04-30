@@ -44,108 +44,117 @@ import examenSegundoTrimestreJava.Ejercicio1.excepciones.ValorNoPositivoExceptio
 
 public class Almacen {
 
-	// Definición de la colección articulo
-	private ArrayList<Articulo> almacen = new ArrayList<Articulo>();
+  // Definición de la colección articulo
+  private ArrayList<Articulo> almacen = new ArrayList<Articulo>();
 
-	/**
-	 * este es el toString()
-	 */
-	public void muestraListado() {
+  /**
+   * este es el toString()
+   */
+  public void muestraListado() {
 
-		if (almacen.isEmpty()) {
-			System.out.println("El almacén está vacío.\n");
-		} else {
-			System.out.println("Artículos en el almacén:");
+    if (almacen.isEmpty()) {
+      System.out.println("El almacén está vacío.\n");
+    } else {
+      System.out.println("Artículos en el almacén:");
 
-			// i es la variable auxiliar que utilizo para recorrer el for each
-			for (Articulo i : almacen) {
-				System.out.println(i);
-			}
-		}
-	}
+      // i es la variable auxiliar que utilizo para recorrer el for each
+      for (Articulo i : almacen) {
+        System.out.println(i);
+      }
+    }
+  }
 
-	/**
-	 * método que da de alta al artículo según los parámetros pasados en el constructor
-	 * @param descripcion
-	 * @param precioCompra
-	 * @param precioVenta
-	 * @param stock
-	 * @throws ValorNoPositivoException 
-	 * @throws IvaInvalidoException 
-	 */
-	public void darAlta(String descripcion, double precioCompra, double precioVenta, int stock, String IVA) throws ValorNoPositivoException, IvaInvalidoException {
+  /**
+   * método que da de alta al artículo según los parámetros pasados en el
+   * constructor
+   * 
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws ValorNoPositivoException
+   * @throws IvaInvalidoException
+   */
+  public void darAlta(String descripcion, double precioCompra, double precioVenta, int stock, String IVA)
+      throws ValorNoPositivoException, IvaInvalidoException {
 
-		almacen.add(new Articulo(descripcion, precioCompra, precioVenta, stock, IVA));
+    almacen.add(new Articulo(descripcion, precioCompra, precioVenta, stock, IVA));
 
-	}
+  }
 
-	/**
-	 * método que da de baja al artículo según el codigo que se le pase(identificador)
-	 * @param codigo
-	 */
-	public void darBaja(int codigo) {
+  /**
+   * método que da de baja al artículo según el codigo que se le
+   * pase(identificador)
+   * 
+   * @param codigo
+   */
+  public void darBaja(int codigo) {
 
-		codigo--;
-		almacen.remove(codigo);
-		System.out.println("Artículo eliminado correctamente.");
+    codigo--;
+    almacen.remove(codigo);
+    System.out.println("Artículo eliminado correctamente.");
 
-	}
+  }
 
-	/**
-	 * método que modifica el artículo (reescribir los parámetros descripcion,precios y stock)
-	 *  según el codigo que le pase el usuario.
-	 * @param articulo
-	 * @param descripcion
-	 * @param precioCompra
-	 * @param precioVenta
-	 * @param stock
-	 * @throws ValorNoPositivoException 
-	 * @throws IvaInvalidoException 
-	 */
-	 public void modificarArticulo(Articulo articulo, String descripcion, double precioCompra, double precioVenta,
-			int stock, String IVA) throws ValorNoPositivoException, IvaInvalidoException {
+  /**
+   * método que modifica el artículo (reescribir los parámetros
+   * descripcion,precios y stock) según el codigo que le pase el usuario.
+   * 
+   * @param articulo
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws ValorNoPositivoException
+   * @throws IvaInvalidoException
+   */
+  public void modificarArticulo(Articulo articulo, String descripcion, double precioCompra, double precioVenta,
+      int stock, String IVA) throws ValorNoPositivoException, IvaInvalidoException {
 
-		articulo.modificarArticulo(descripcion, precioCompra, precioVenta, stock,IVA);
-		System.out.println("Artículo modificado correctamente.\n");
-		//almacen.set(indice, almacen.get(indice));
+    articulo.modificarArticulo(descripcion, precioCompra, precioVenta, stock, IVA);
+    System.out.println("Artículo modificado correctamente.\n");
+    // almacen.set(indice, almacen.get(indice));
 
-	}
+  }
 
-	/**
-	 * método que incrementa el stock según el codigo que le pasa el usuario
-	 * @param codigo
-	 * @param cantidad
-	 * @throws ValorNoPositivoException 
-	 */
-	public void incrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
+  /**
+   * método que incrementa el stock según el codigo que le pasa el usuario
+   * 
+   * @param codigo
+   * @param cantidad
+   * @throws ValorNoPositivoException
+   */
+  public void incrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
 
-		Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
-		articulo.incrementarStock(cantidad);
+    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+    articulo.incrementarStock(cantidad);
 
-	}
+  }
 
-	/**
-	 * método que decrementa el stock según el codigo que le pasa el usuario
-	 * @param codigo
-	 * @param cantidad
-	 * @throws ValorNoPositivoException 
-	 */
-	public void decrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
+  /**
+   * método que decrementa el stock según el codigo que le pasa el usuario
+   * 
+   * @param codigo
+   * @param cantidad
+   * @throws ValorNoPositivoException
+   */
+  public void decrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
 
-		Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
-		articulo.decrementarStock(cantidad);
+    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+    articulo.decrementarStock(cantidad);
 
-	}
+  }
 
-	/**
-	 * sobrecarga del constructor (únicamente codigo)
-	 * @param codigo
-	 * @return
-	 */
-	public Articulo getCodigo(int codigo) {
+  /**
+   * sobrecarga del constructor (únicamente codigo)
+   * 
+   * @param codigo
+   * @return
+   */
+  public Articulo getCodigo(int codigo) {
 
-		return almacen.get(almacen.indexOf(new Articulo(codigo)));
+    return almacen.get(almacen.indexOf(new Articulo(codigo)));
 
-	}
+  }
 
 }

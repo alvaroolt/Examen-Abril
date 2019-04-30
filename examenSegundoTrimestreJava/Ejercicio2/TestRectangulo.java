@@ -20,20 +20,20 @@ package examenSegundoTrimestreJava.Ejercicio2;
  */
 public class TestRectangulo {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		try {
-			Rectangulo rectangulo1 = new Rectangulo(2, 4);
-			Rectangulo rectangulo2 = new Rectangulo(8, 4);
-			Rectangulo rectangulo3 = new Rectangulo(5, 5);
+    try {
+      Rectangulo rectangulo1 = new Rectangulo(2, 4);
+      Rectangulo rectangulo2 = new Rectangulo(8, 4);
+      Rectangulo rectangulo3 = new Rectangulo(5, 5);
 
-			System.out.println(rectangulo1);
-			System.out.println(rectangulo2);
-			System.out.println(rectangulo3);
+      System.out.println(rectangulo1);
+      System.out.println(rectangulo2);
+      System.out.println(rectangulo3);
 
-		} catch (ArithmeticException e) {
-			System.err.println("ERROR. " + e.getMessage());
-		}
-	}
+    } catch (ArithmeticException e) {
+      System.err.println("ERROR. " + e.getMessage());
+    }
+  }
 
 }

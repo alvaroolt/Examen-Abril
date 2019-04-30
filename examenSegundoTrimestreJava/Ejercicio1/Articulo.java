@@ -53,207 +53,207 @@ import examenSegundoTrimestreJava.Ejercicio1.excepciones.ValorNoPositivoExceptio
 
 public class Articulo {
 
-	// variable estática que utilizo para obtener el codigo de cada articulo
-	private static int contador = 1;
+  // variable estática que utilizo para obtener el codigo de cada articulo
+  private static int contador = 1;
 
-	// atributos del Articulo
-	private int codigo;
-	private String descripcion;
-	private double precioCompra;
-	private double precioVenta;
-	private int stock;
-	private String IVA;
+  // atributos del Articulo
+  private int codigo;
+  private String descripcion;
+  private double precioCompra;
+  private double precioVenta;
+  private int stock;
+  private String IVA;
 
-	// constructor
-	/**
-	 * 
-	 * @param descripcion
-	 * @param precioCompra
-	 * @param precioVenta
-	 * @param stock
-	 * @throws ValorNoPositivoException
-	 * @throws IvaInvalidoException
-	 */
-	public Articulo(String descripcion, double precioCompra, double precioVenta, int stock, String IVA)
-			throws ValorNoPositivoException, IvaInvalidoException {
+  // constructor
+  /**
+   * 
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws ValorNoPositivoException
+   * @throws IvaInvalidoException
+   */
+  public Articulo(String descripcion, double precioCompra, double precioVenta, int stock, String IVA)
+      throws ValorNoPositivoException, IvaInvalidoException {
 
-		setCodigo(generaCodigo());
-		setDescripcion(descripcion);
-		setPrecioCompra(precioCompra);
-		setPrecioVenta(precioVenta);
-		setStock(stock);
-		setIVA(IVA);
-		// compruebaStrock();
+    setCodigo(generaCodigo());
+    setDescripcion(descripcion);
+    setPrecioCompra(precioCompra);
+    setPrecioVenta(precioVenta);
+    setStock(stock);
+    setIVA(IVA);
+    // compruebaStrock();
 
-	}
+  }
 
-	private void setIVA(String IVA) throws IvaInvalidoException { // setter IVA
+  private void setIVA(String IVA) throws IvaInvalidoException { // setter IVA
 
-		if (IVA == null) {
-			throw new IvaInvalidoException("Iva no válido.");
-		}
-		this.IVA = IVA;
+    if (IVA == null) {
+      throw new IvaInvalidoException("Iva no válido.");
+    }
+    this.IVA = IVA;
 
-	}
+  }
 
-	public String getIVA() { // getter IVA
-		return IVA;
-	}
+  public String getIVA() { // getter IVA
+    return IVA;
+  }
 
-	// constructor (2)
-	public Articulo(int codigo) {
-		setCodigo(codigo);
-	}
+  // constructor (2)
+  public Articulo(int codigo) {
+    setCodigo(codigo);
+  }
 
-	public int getCodigo() {
-		return codigo;
-	}
+  public int getCodigo() {
+    return codigo;
+  }
 
-	private void setCodigo(int codigoId) {
-		this.codigo = codigoId;
-	}
+  private void setCodigo(int codigoId) {
+    this.codigo = codigoId;
+  }
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+  public String getDescripcion() {
+    return descripcion;
+  }
 
-	private void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+  private void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
 
-	public double getPrecioCompra() {
-		return precioCompra;
-	}
+  public double getPrecioCompra() {
+    return precioCompra;
+  }
 
-	private void setPrecioCompra(double precioCompra) throws ValorNoPositivoException {
-		if (precioCompra < 0)
-			throw new ValorNoPositivoException("Precio de compra no puede ser negativo.");
-		else {
-			this.precioCompra = precioCompra;
-		}
-	}
+  private void setPrecioCompra(double precioCompra) throws ValorNoPositivoException {
+    if (precioCompra < 0)
+      throw new ValorNoPositivoException("Precio de compra no puede ser negativo.");
+    else {
+      this.precioCompra = precioCompra;
+    }
+  }
 
-	public double getPrecioVenta() {
-		return precioVenta;
-	}
+  public double getPrecioVenta() {
+    return precioVenta;
+  }
 
-	private void setPrecioVenta(double precioVenta) throws ValorNoPositivoException {
-		if (precioVenta < 0)
-			throw new ValorNoPositivoException("Precio de venta no puede ser negativo.");
-		this.precioVenta = precioVenta;
-	}
+  private void setPrecioVenta(double precioVenta) throws ValorNoPositivoException {
+    if (precioVenta < 0)
+      throw new ValorNoPositivoException("Precio de venta no puede ser negativo.");
+    this.precioVenta = precioVenta;
+  }
 
-	public int getStock() {
-		return stock;
-	}
+  public int getStock() {
+    return stock;
+  }
 
-	/**
-	 * 
-	 * @param stock
-	 * @throws ValorNoPositivoException
-	 */
-	void setStock(int stock) throws ValorNoPositivoException {
-		if (stock < 0)
-			throw new ValorNoPositivoException("Stock no puede ser negativo.");
-		this.stock = stock;
-	}
+  /**
+   * 
+   * @param stock
+   * @throws ValorNoPositivoException
+   */
+  void setStock(int stock) throws ValorNoPositivoException {
+    if (stock < 0)
+      throw new ValorNoPositivoException("Stock no puede ser negativo.");
+    this.stock = stock;
+  }
 
-	/**
-	 * método que genera un código para cada artículo de forma automática
-	 * 
-	 * @return int
-	 */
-	private int generaCodigo() {
-		int codigo = contador;
-		contador++;
-		return codigo;
-	}
+  /**
+   * método que genera un código para cada artículo de forma automática
+   * 
+   * @return int
+   */
+  private int generaCodigo() {
+    int codigo = contador;
+    contador++;
+    return codigo;
+  }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + codigo;
-		return result;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#hashCode()
+   */
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + codigo;
+    return result;
+  }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Articulo other = (Articulo) obj;
-		if (codigo != other.codigo)
-			return false;
-		return true;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Articulo other = (Articulo) obj;
+    if (codigo != other.codigo)
+      return false;
+    return true;
+  }
 
-	/**
-	 * metodo vacio que modifica un articulo; todo salvo el codigo.
-	 * 
-	 * @param descripcion
-	 * @param precioCompra
-	 * @param precioVenta
-	 * @param stock
-	 * @throws ValorNoPositivoException
-	 * @throws IvaInvalidoException
-	 */
-	public void modificarArticulo(String descripcion, double precioCompra, double precioVenta, int stock, String IVA)
-			throws ValorNoPositivoException, IvaInvalidoException {
-		setStock(stock);
-		setDescripcion(descripcion);
-		setPrecioCompra(precioCompra);
-		setPrecioVenta(precioVenta);
-		setIVA(IVA);
+  /**
+   * metodo vacio que modifica un articulo; todo salvo el codigo.
+   * 
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws ValorNoPositivoException
+   * @throws IvaInvalidoException
+   */
+  public void modificarArticulo(String descripcion, double precioCompra, double precioVenta, int stock, String IVA)
+      throws ValorNoPositivoException, IvaInvalidoException {
+    setStock(stock);
+    setDescripcion(descripcion);
+    setPrecioCompra(precioCompra);
+    setPrecioVenta(precioVenta);
+    setIVA(IVA);
 
-	}
+  }
 
-	/**
-	 * metodo vacio que incrementa el stock
-	 * 
-	 * @param cantidad
-	 * @throws ValorNoPositivoException
-	 */
-	void incrementarStock(int cantidad) throws ValorNoPositivoException {
+  /**
+   * metodo vacio que incrementa el stock
+   * 
+   * @param cantidad
+   * @throws ValorNoPositivoException
+   */
+  void incrementarStock(int cantidad) throws ValorNoPositivoException {
 
-		setStock(getStock() + cantidad);
+    setStock(getStock() + cantidad);
 
-	}
+  }
 
-	/**
-	 * metodo vacio que decrementa el stock
-	 * 
-	 * @param cantidad
-	 * @throws ValorNoPositivoException
-	 */
-	public void decrementarStock(int cantidad) throws ValorNoPositivoException {
+  /**
+   * metodo vacio que decrementa el stock
+   * 
+   * @param cantidad
+   * @throws ValorNoPositivoException
+   */
+  public void decrementarStock(int cantidad) throws ValorNoPositivoException {
 
-		setStock(getStock() - cantidad);
+    setStock(getStock() - cantidad);
 
-	}
+  }
 
-	/**
-	 * metodo toString articulo
-	 * 
-	 * @return String
-	 */
-	@Override
-	public String toString() {
-		return "Articulo [codigo=" + codigo + ", descripcion=" + descripcion + ", precioCompra=" + precioCompra
-				+ "€, precioVenta=" + precioVenta + "€, stock=" + stock + ", IVA=" + IVA + "]\n";
-	}
+  /**
+   * metodo toString articulo
+   * 
+   * @return String
+   */
+  @Override
+  public String toString() {
+    return "Articulo [codigo=" + codigo + ", descripcion=" + descripcion + ", precioCompra=" + precioCompra
+        + "€, precioVenta=" + precioVenta + "€, stock=" + stock + ", IVA=" + IVA + "]\n";
+  }
 
 }

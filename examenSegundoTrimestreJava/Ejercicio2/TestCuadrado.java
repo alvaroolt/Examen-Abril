@@ -21,34 +21,34 @@ package examenSegundoTrimestreJava.Ejercicio2;
  */
 public class TestCuadrado {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		try {
+    try {
 
-			Cuadrado cuadrado1 = new Cuadrado(6);
-			Cuadrado cuadrado2 = new Cuadrado(5);
-			// Cuadrado cuadrado3 = new Cuadrado(5);
+      Cuadrado cuadrado1 = new Cuadrado(6);
+      Cuadrado cuadrado2 = new Cuadrado(5);
+      // Cuadrado cuadrado3 = new Cuadrado(5);
 
-			System.out.println(cuadrado1);
-			System.out.println(cuadrado2);
+      System.out.println(cuadrado1);
+      System.out.println(cuadrado2);
 
-			if (cuadrado1.compareTo(cuadrado2) == 0) {
-				System.out.println("Cuadrados 1 y 2 iguales.");
+      if (cuadrado1.compareTo(cuadrado2) == 0) {
+        System.out.println("Cuadrados 1 y 2 iguales.");
 
-			} else if (cuadrado1.compareTo(cuadrado2) < 0) {
-				System.out.println("Cuadrado 1 menor que cuadrado 2.");
+      } else if (cuadrado1.compareTo(cuadrado2) < 0) {
+        System.out.println("Cuadrado 1 menor que cuadrado 2.");
 
-			} else {
-				System.out.println("Cuadrado 1 mayor que cuadrado 2.");
-			}
+      } else {
+        System.out.println("Cuadrado 1 mayor que cuadrado 2.");
+      }
 
-			// cuadrado2.compareTo(cuadrado1);
-			// cuadrado1.compareTo(cuadrado3);
+      // cuadrado2.compareTo(cuadrado1);
+      // cuadrado1.compareTo(cuadrado3);
 
-		} catch (ArithmeticException e) {
+    } catch (ArithmeticException e) {
 
-			System.err.println("ERROR. " + e.getMessage());
-		}
-	}
+      System.err.println("ERROR. " + e.getMessage());
+    }
+  }
 
 }
