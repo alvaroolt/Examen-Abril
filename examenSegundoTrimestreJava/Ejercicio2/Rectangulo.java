@@ -21,68 +21,68 @@ package examenSegundoTrimestreJava.Ejercicio2;
  */
 public class Rectangulo {
 
-	// Atributos de rectangulo
-	private int ancho;
-	private int alto;
+  // Atributos de rectangulo
+  private int ancho;
+  private int alto;
 
-	/**
-	 * 
-	 * @param ancho
-	 * @param alto
-	 */
-	public Rectangulo(int ancho, int alto) {
-		setAncho(ancho);
-		setAlto(alto);
-	}
+  /**
+   * 
+   * @param ancho
+   * @param alto
+   */
+  public Rectangulo(int ancho, int alto) {
+    setAncho(ancho);
+    setAlto(alto);
+  }
 
-	/**
-	 * @return the ancho
-	 */
-	public int getAncho() {
-		return ancho;
-	}
+  /**
+   * @return the ancho
+   */
+  public int getAncho() {
+    return ancho;
+  }
 
-	/**
-	 * @param ancho
-	 *          the ancho to set
-	 */
-	public void setAncho(int ancho) {
-		if (ancho > 10 || ancho < 1) {
-			throw new ArithmeticException("Ancho no válido.");
-		}
-		this.ancho = ancho;
-	}
+  /**
+   * @param ancho
+   *          the ancho to set
+   */
+  public void setAncho(int ancho) {
+    if (ancho > 10 || ancho < 1) {
+      throw new ArithmeticException("Ancho no válido.");
+    }
+    this.ancho = ancho;
+  }
 
-	/**
-	 * @return the alto
-	 */
-	public int getAlto() {
-		return alto;
-	}
+  /**
+   * @return the alto
+   */
+  public int getAlto() {
+    return alto;
+  }
 
-	/**
-	 * @param alto
-	 *          the alto to set
-	 */
-	public void setAlto(int alto) {
-		if (alto > 10 || alto < 1) {
-			throw new ArithmeticException("Alto no válido.");
-		}
-		this.alto = alto;
-	}
+  /**
+   * @param alto
+   *          the alto to set
+   */
+  public void setAlto(int alto) {
+    if (alto > 10 || alto < 1) {
+      throw new ArithmeticException("Alto no válido.");
+    }
+    this.alto = alto;
+  }
 
-	@Override
-	public String toString() {
-		String mensaje = "";
+  @Override
+  public String toString() {
+    String mensaje = "";
 
-		System.out.println("La figura impresa es la siguiente:");
-		for (int i = 0; i < alto; i++) {
-			for (int j = 0; j < ancho; j++) {
-				// System.out.print("X");
-				mensaje += "X";
-			}
-			mensaje += "\n";
-		}
-		return mensaje;
-	}
+    System.out.println("La figura impresa es la siguiente:");
+    for (int i = 0; i < alto; i++) {
+      for (int j = 0; j < ancho; j++) {
+        // System.out.print("X");
+        mensaje += "X";
+      }
+      mensaje += "\n";
+    }
+    return mensaje;
+  }
 }
