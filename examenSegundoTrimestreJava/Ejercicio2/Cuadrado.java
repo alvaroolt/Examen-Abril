@@ -1,7 +1,5 @@
 package examenSegundoTrimestreJava.Ejercicio2;
 
-import coleccionesYDiccionarios.ejercicio8.Carta;
-
 /**
  * Crea la clase Rectángulo de forma que: • Un objeto de esta clase se construye
  * pasándole el ancho y el alto. Ninguno de los dos atributos puede ser menor o
@@ -22,9 +20,6 @@ import coleccionesYDiccionarios.ejercicio8.Carta;
  */
 public class Cuadrado extends Rectangulo implements Comparable<Cuadrado> {
 
-  // Atributos de cuadrado
-  private int lado;
-
   /**
    * Constructor de Cuadrado
    * 
@@ -32,73 +27,14 @@ public class Cuadrado extends Rectangulo implements Comparable<Cuadrado> {
    */
   public Cuadrado(int lado) {
     super(lado, lado);
-    setLado(lado);
   }
-
+  
   /**
    * getter
-   * 
-   * @return lado
+   * @return alto (lado)
    */
   public int getLado() {
-    return this.lado;
-  }
-
-  /**
-   * setter
-   * 
-   * @param lado
-   */
-  public void setLado(int lado) {
-    this.lado = lado;
-  }
-
-  /**
-   * toString()
-   */
-  @Override
-  public String toString() {
-    String mensaje = "";
-    System.out.println("La figura impresa es la siguiente:");
-    for (int i = 0; i < getAlto(); i++) {
-      for (int j = 0; j < getAlto(); j++) {
-        mensaje += "X";
-      }
-      mensaje += "\n";
-    }
-    return mensaje;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.lang.Object#hashCode()
-   */
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + lado;
-    return result;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.lang.Object#equals(java.lang.Object)
-   */
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Cuadrado other = (Cuadrado) obj;
-    if (lado != other.lado)
-      return false;
-    return true;
+    return this.getAlto();
   }
 
   @Override
@@ -111,16 +47,10 @@ public class Cuadrado extends Rectangulo implements Comparable<Cuadrado> {
       return 1;
     }
   }
-
-  // public void compararCuadrados(Cuadrado cuadrado) {
-  //
-  // if(this.getAlto() > cuadrado.getAlto()) {
-  // System.out.println("Tu cuadrado es más grande.");
-  // } else if(this.getAlto() < cuadrado.getAlto()) {
-  // System.out.println("El otro cuadrado es más grande.");
-  // } else {
-  // System.out.println("Los cuadrados son igual de grandes.");
-  // }
-  // }
+  
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 
 }

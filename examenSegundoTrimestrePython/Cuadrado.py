@@ -27,28 +27,30 @@ class Cuadrado(Rectangulo):
     def __init__(self, lado):
         
         super().__init__(lado, lado)
-        self.lado = lado
     
     @staticmethod
-    def compruebaLado(self, lado):
-        if lado > 10 or lado < 1:
-            raise TypeError("Lado no válido.", lado)
+    def compruebaLado(valor):
+        if not isinstance(valor, int):
+            raise TypeError("Lado no válido.", valor)
+        if (valor <= 0 or valor > 10):
+            raise ArithmeticError();
     
     @property
     def lado(self):
-        return self.__lado
+        return self.alto
         
     @lado.setter
     def lado(self, lado):
-        Cuadrado.compruebaLado(self, lado)
-        self.__lado = lado
+        Cuadrado.compruebaLado(lado)
+        self.alto = lado
+        self.ancho = lado
     
-    #Sobrecarga de operadores (mayor que, menor que, igual que)
+    # Sobrecarga de operadores (mayor que, mayor o igual que, igual que)
     def __gt__(self, other):
         return self.lado > other.lado
     
-    def __lt__(self, other):
-        return self.lado < other.lado
+    def __ge__(self, other):
+        return self.lado >= other.lado
     
     def __eq__(self, other):
         return self.lado == other.lado

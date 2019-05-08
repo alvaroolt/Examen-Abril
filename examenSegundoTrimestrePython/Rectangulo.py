@@ -19,12 +19,11 @@ excepción y capturarla.
 @version: 1.0
 '''
 
+
 class Rectangulo:
     
     # constructor
     def __init__(self, ancho, alto):
-        #Rectangulo.compruebaAncho(self, ancho)
-        #Rectangulo.compruebaAlto(self, alto)
         self.ancho = ancho
         self.alto = alto
     
@@ -40,7 +39,7 @@ class Rectangulo:
         
     @property
     def ancho(self):
-        return self.__ancho #alternativa a getter en java
+        return self.__ancho  # alternativa a getter en java
     
     @ancho.setter
     def ancho(self, ancho):
@@ -49,7 +48,7 @@ class Rectangulo:
     
     @property
     def alto(self):
-        return self.__alto # alternativa a getter en java
+        return self.__alto  # alternativa a getter en java
     
     @alto.setter
     def alto(self, alto):
@@ -57,12 +56,12 @@ class Rectangulo:
         self.__alto = alto
     
     def __str__(self):
-        mensaje =""
+        mensaje = ""
         
         print("La figura impresa es la siguiente:")
         for i in range(self.alto):
             for j in range(self.ancho):
                 mensaje += "X"
-            mensaje +="\n"
+            mensaje += "\n"
         return mensaje
         print()

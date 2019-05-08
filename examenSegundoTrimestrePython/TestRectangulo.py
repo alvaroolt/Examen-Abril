@@ -25,14 +25,11 @@ import sys
 try:
     rectangulo1 = Rectangulo(4, 2)
     rectangulo2 = Rectangulo(6, 8)
-    rectangulo3 = Rectangulo(5,11)
+    # rectangulo3 = Rectangulo(5,11)
     
-    '''
-    Tengo que solucionar las excepciones para que aparezcan el mensaje correspondiente según el error cometido
-    '''
     print(rectangulo1)
     print(rectangulo2)
-    print(rectangulo3)
+    # print(rectangulo3)
 
 except TypeError:
     sys.stderr.write("ERROR. Introducidos valores no permitidos.")
