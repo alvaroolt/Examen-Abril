@@ -2,8 +2,8 @@ package examenSegundoTrimestreJava.Ejercicio1.negocio;
 
 import java.util.ArrayList;
 
-import examenSegundoTrimestreJava.Ejercicio1.excepciones.IvaInvalidoException;
-import examenSegundoTrimestreJava.Ejercicio1.excepciones.ValorNoPositivoException;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
 
 /**
  * Crea el programa GESTISIMAL (GESTIón SIMplificada de Almacén) para llevar el

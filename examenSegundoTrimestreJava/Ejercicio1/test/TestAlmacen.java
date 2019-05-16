@@ -2,12 +2,12 @@ package examenSegundoTrimestreJava.Ejercicio1.test;
 
 import java.io.IOException;
 
-import examenSegundoTrimestreJava.Ejercicio1.excepciones.IvaInvalidoException;
-import examenSegundoTrimestreJava.Ejercicio1.excepciones.ParametroNoNumericoException;
-import examenSegundoTrimestreJava.Ejercicio1.excepciones.ValorNoPositivoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.Almacen;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.Articulo;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.IVA;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ParametroNoNumericoException;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
 import utiles.Menu;
 import utiles.Teclado;
 
