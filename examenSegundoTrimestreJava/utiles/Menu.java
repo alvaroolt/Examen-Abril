@@ -3,9 +3,9 @@ package examenSegundoTrimestreJava.utiles;
 import java.io.IOException;
 
 public class Menu {
-	String titulo = null;
-	String opciones[] = null;
-	int numOpciones = 0;
+	String titulo;
+	String opciones[];
+	int numOpciones;
 
 	/**
 	 * 
