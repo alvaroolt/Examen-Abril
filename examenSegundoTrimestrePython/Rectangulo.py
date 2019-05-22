@@ -26,24 +26,16 @@ class Rectangulo:
     def __init__(self, ancho, alto):
         self.ancho = ancho
         self.alto = alto
-    
-    @staticmethod
-    def compruebaAncho(self, ancho):
-        if ancho > 10 or ancho < 1:
-            raise TypeError("Ancho no válido.", ancho)
-        
-    @staticmethod
-    def compruebaAlto(self, alto):
-        if alto > 10 or alto < 1:
-            raise TypeError("Alto no válido.", alto)
         
     @property
     def ancho(self):
+        
         return self.__ancho  # alternativa a getter en java
     
     @ancho.setter
     def ancho(self, ancho):
-        Rectangulo.compruebaAncho(self, ancho)
+        if ancho > 10 or ancho < 1:
+            raise TypeError("Ancho no válido.", ancho)
         self.__ancho = ancho
     
     @property
@@ -52,12 +44,12 @@ class Rectangulo:
     
     @alto.setter
     def alto(self, alto):
-        Rectangulo.compruebaAlto(self, alto)
+        if alto > 10 or alto < 1:
+            raise TypeError("Alto no válido.", alto)
         self.__alto = alto
     
     def __str__(self):
         mensaje = ""
-        
         for i in range(self.alto):
             for j in range(self.ancho):
                 mensaje += "X"

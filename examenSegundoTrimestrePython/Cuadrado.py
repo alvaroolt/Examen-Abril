@@ -28,20 +28,12 @@ class Cuadrado(Rectangulo):
         
         super().__init__(lado, lado)
     
-    @staticmethod
-    def compruebaLado(valor):
-        if not isinstance(valor, int):
-            raise TypeError("Lado no válido.", valor)
-        if (valor <= 0 or valor > 10):
-            raise ArithmeticError();
-    
     @property
     def lado(self):
         return self.alto
         
     @lado.setter
     def lado(self, lado):
-        Cuadrado.compruebaLado(lado)
         self.alto = lado
         self.ancho = lado
     
