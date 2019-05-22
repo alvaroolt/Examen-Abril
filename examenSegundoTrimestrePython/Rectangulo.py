@@ -58,7 +58,6 @@ class Rectangulo:
     def __str__(self):
         mensaje = ""
         
-        print("La figura impresa es la siguiente:")
         for i in range(self.alto):
             for j in range(self.ancho):
                 mensaje += "X"
