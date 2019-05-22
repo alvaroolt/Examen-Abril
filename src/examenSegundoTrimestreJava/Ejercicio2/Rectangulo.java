@@ -43,8 +43,7 @@ public class Rectangulo {
   }
 
   /**
-   * @param ancho
-   *          the ancho to set
+   * @param ancho the ancho to set
    */
   public void setAncho(int ancho) {
     if (ancho > 10 || ancho < 1) {
@@ -61,8 +60,7 @@ public class Rectangulo {
   }
 
   /**
-   * @param alto
-   *          the alto to set
+   * @param alto the alto to set
    */
   public void setAlto(int alto) {
     if (alto > 10 || alto < 1) {
@@ -74,8 +72,6 @@ public class Rectangulo {
   @Override
   public String toString() {
     String mensaje = "";
-
-    System.out.println("La figura impresa es la siguiente:");
     for (int i = 0; i < alto; i++) {
       for (int j = 0; j < ancho; j++) {
         // System.out.print("X");

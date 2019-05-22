@@ -28,9 +28,21 @@ public class Cuadrado extends Rectangulo implements Comparable<Cuadrado> {
   public Cuadrado(int lado) {
     super(lado, lado);
   }
-  
+
+  /**
+   * setter
+   * 
+   * @param lado
+   */
+  @SuppressWarnings("unused")
+  private void setLado(int lado) {
+    setAncho(lado);
+    setAlto(lado);
+  }
+
   /**
    * getter
+   * 
    * @return alto (lado)
    */
   public int getLado() {
@@ -47,7 +59,42 @@ public class Cuadrado extends Rectangulo implements Comparable<Cuadrado> {
       return 1;
     }
   }
-  
+
+  /**
+   * metodo hashCode
+   * 
+   * @return: result
+   */
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    long temp;
+    temp = Double.doubleToLongBits(getLado());
+    result = prime * result + (int) (temp ^ (temp >>> 32));
+    return result;
+  }
+
+  /**
+   * metodo equals
+   * 
+   * @param: objeto cuadrado
+   * @return: boolean
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Cuadrado other = (Cuadrado) obj;
+    if (Double.doubleToLongBits(getLado()) != Double.doubleToLongBits(other.getLado()))
+      return false;
+    return true;
+  }
+
   @Override
   public String toString() {
     return super.toString();
