@@ -1,14 +1,12 @@
 package utiles;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Teclado {
 
-  static Scanner sc = new Scanner(System.in);
+  static private Scanner sc = new Scanner(System.in);
 
   /**
    * Lee un carácter del teclado
@@ -68,12 +66,13 @@ public class Teclado {
    * @return entero introducido por el usuario
    * @throws IOException
    * @throws NumberFormatException
+   * @throws EnteroNoValidoException
    */
-  public static int leerEntero() throws NumberFormatException, IOException {
+  public static int leerEntero() throws NumberFormatException, IOException, EnteroNoValidoException {
     try {
       return Integer.parseInt(leerCadena().trim()); // Quita los espacios del String y convierte a int
     } catch (NumberFormatException e) {
-      throw new NumberFormatException("Introduzca un número entero.");
+      throw new EnteroNoValidoException("Introduce un entero.");
     }
   }
 
@@ -85,7 +84,7 @@ public class Teclado {
    * @throws IOException
    * @throws NumberFormatException
    */
-  public static int leerEntero(String msj) throws NumberFormatException, IOException {
+  public static int leerEntero(String msj) throws NumberFormatException, IOException, EnteroNoValidoException {
     System.out.println(msj);
     return leerEntero();
   }
