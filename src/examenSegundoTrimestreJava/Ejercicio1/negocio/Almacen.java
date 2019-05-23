@@ -91,7 +91,6 @@ public class Almacen {
 
     codigo--;
     almacen.remove(codigo);
-    System.out.println("Artículo eliminado correctamente.");
 
   }
 
@@ -111,7 +110,6 @@ public class Almacen {
       int stock, IVA iva) throws ValorNoPositivoException, IvaInvalidoException {
 
     articulo.modificarArticulo(descripcion, precioCompra, precioVenta, stock, iva);
-    System.out.println("Artículo modificado correctamente.\n");
     // almacen.set(indice, almacen.get(indice));
 
   }
