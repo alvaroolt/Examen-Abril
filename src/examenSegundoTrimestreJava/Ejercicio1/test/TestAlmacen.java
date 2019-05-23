@@ -8,6 +8,7 @@ import examenSegundoTrimestreJava.Ejercicio1.negocio.IVA;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ParametroNoNumericoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
+import utiles.EnteroNoValidoException;
 import utiles.Menu;
 import utiles.Teclado;
 
@@ -28,11 +29,11 @@ public class TestAlmacen {
   static Almacen almacen = new Almacen();
 
   public static void main(String[] args) throws ParametroNoNumericoException, ValorNoPositivoException,
-      NumberFormatException, IOException, IvaInvalidoException {
+      NumberFormatException, IOException, IvaInvalidoException, EnteroNoValidoException {
 
     // Algunas instancias predefinidas.
-    almacen.darAlta("Coca-Cola", 30, 45, 68,IVA.GENERAL);
-    almacen.darAlta("Nestea", 22, 35, 40,IVA.REDUCIDO);
+    almacen.darAlta("Coca-Cola", 30, 45, 68, IVA.GENERAL);
+    almacen.darAlta("Nestea", 22, 35, 40, IVA.REDUCIDO);
     almacen.darAlta("Fanta", 33, 42, 53, IVA.SUPER_REDUCIDO);
 
     ejecutaMenu();
@@ -67,9 +68,10 @@ public class TestAlmacen {
    * @throws ValorNoPositivoException
    * @throws IOException
    * @throws NumberFormatException
+   * @throws EnteroNoValidoException
    */
-  private static void ejecutaMenu()
-      throws ParametroNoNumericoException, ValorNoPositivoException, NumberFormatException, IOException {
+  private static void ejecutaMenu() throws ParametroNoNumericoException, ValorNoPositivoException,
+      NumberFormatException, IOException, EnteroNoValidoException {
 
     do {
 
@@ -253,8 +255,9 @@ public class TestAlmacen {
    * @return numeroIVA
    * @throws NumberFormatException
    * @throws IOException
+   * @throws EnteroNoValidoException 
    */
-  private static IVA elegirIVA() throws NumberFormatException, IOException {
+  private static IVA elegirIVA() throws NumberFormatException, IOException, EnteroNoValidoException {
 
     switch (menuIVA.gestionar()) {
     case 1:
