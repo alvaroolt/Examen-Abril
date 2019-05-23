@@ -2,7 +2,7 @@ package examenSegundoTrimestreJava.Ejercicio1.negocio;
 
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
- 
+
 /**
  * Crea el programa GESTISIMAL (GESTIón SIMplificada de Almacén) para llevar el
  * control de los artículos de un almacén. De cada artículo se debe saber el
@@ -128,9 +128,8 @@ public class Articulo {
   private void setPrecioCompra(double precioCompra) throws ValorNoPositivoException {
     if (precioCompra < 0)
       throw new ValorNoPositivoException("Precio de compra no puede ser negativo.");
-    else {
-      this.precioCompra = precioCompra;
-    }
+    
+    this.precioCompra = precioCompra;
   }
 
   public double getPrecioVenta() {
@@ -164,9 +163,7 @@ public class Articulo {
    * @return int
    */
   private int generaCodigo() {
-    int codigo = contador;
-    contador++;
-    return codigo;
+    return contador++;
   }
 
   /*

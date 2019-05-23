@@ -28,13 +28,16 @@ public class TestAlmacen {
   // objeto almacen
   static Almacen almacen = new Almacen();
 
-  public static void main(String[] args) throws ParametroNoNumericoException, ValorNoPositivoException,
-      NumberFormatException, IOException, IvaInvalidoException, EnteroNoValidoException {
+  public static void main(String[] args) {
 
-    // Algunas instancias predefinidas.
-    almacen.darAlta("Coca-Cola", 30, 45, 68, IVA.GENERAL);
-    almacen.darAlta("Nestea", 22, 35, 40, IVA.REDUCIDO);
-    almacen.darAlta("Fanta", 33, 42, 53, IVA.SUPER_REDUCIDO);
+    try {
+      // Algunas instancias predefinidas.
+      almacen.darAlta("Coca-Cola", 30, 45, 68, IVA.GENERAL);
+      almacen.darAlta("Nestea", 22, 35, 40, IVA.REDUCIDO);
+      almacen.darAlta("Fanta", 33, 42, 53, IVA.SUPER_REDUCIDO);
+    } catch (ValorNoPositivoException | IvaInvalidoException e) {
+      System.err.println("Aquí nunca va a entrar.");
+    }
 
     ejecutaMenu();
 
@@ -70,8 +73,7 @@ public class TestAlmacen {
    * @throws NumberFormatException
    * @throws EnteroNoValidoException
    */
-  private static void ejecutaMenu() throws ParametroNoNumericoException, ValorNoPositivoException,
-      NumberFormatException, IOException, EnteroNoValidoException {
+  private static void ejecutaMenu() {
 
     do {
 
@@ -120,30 +122,22 @@ public class TestAlmacen {
    * @throws IOException
    * @throws NumberFormatException
    */
-  private static void darAlta() throws ValorNoPositivoException, NumberFormatException, IOException {
+  private static void darAlta() {
 
     try {
 
-      String descripcion = Teclado.leerCadena("Introduce una breve descripción del artículo:");
-
-      double precioCompra = Teclado.leerDecimal("Precio de compra del artículo: ");
-
-      double precioVenta = Teclado.leerDecimal("Precio de venta del artículo: ");
-
-      int stock = Teclado.leerEntero("Cantidad del artículo en stock: ");
-
-      IVA iva = elegirIVA();
-
-      almacen.darAlta(descripcion, precioCompra, precioVenta, stock, iva);
+      almacen.darAlta(Teclado.leerCadena("Introduce una breve descripción del artículo:"),
+          Teclado.leerDecimal("Precio de compra del artículo: "), Teclado.leerDecimal("Precio de venta del artículo: "),
+          Teclado.leerEntero("Cantidad del artículo en stock: "), elegirIVA());
       System.out.println("Artículo dado de alta correctamente.\n");
 
-    } catch (ValorNoPositivoException e) {
+    } catch (ValorNoPositivoException | IvaInvalidoException | NumberFormatException | EnteroNoValidoException e) {
 
       System.err.println("Hubo algún problema al añadir el artículo.\n" + e.getMessage());
 
-    } catch (Exception e) {
-
-      System.err.println("Introdujiste valores erróneos.");
+//    } catch (Exception e) {
+//
+//      System.err.println("Introdujiste valores erróneos.");
     }
   }
 
@@ -255,9 +249,9 @@ public class TestAlmacen {
    * @return numeroIVA
    * @throws NumberFormatException
    * @throws IOException
-   * @throws EnteroNoValidoException 
+   * @throws EnteroNoValidoException
    */
-  private static IVA elegirIVA() throws NumberFormatException, IOException, EnteroNoValidoException {
+  private static IVA elegirIVA() {
 
     switch (menuIVA.gestionar()) {
     case 1:

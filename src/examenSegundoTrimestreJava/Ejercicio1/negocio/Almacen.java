@@ -89,8 +89,7 @@ public class Almacen {
    */
   public void darBaja(int codigo) {
 
-    codigo--;
-    almacen.remove(codigo);
+    almacen.remove(new Articulo(codigo));
 
   }
 
@@ -123,8 +122,8 @@ public class Almacen {
    */
   public void incrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
 
-    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
-    articulo.incrementarStock(cantidad);
+//    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+    getCodigo(codigo).incrementarStock(cantidad);
 
   }
 
@@ -137,8 +136,8 @@ public class Almacen {
    */
   public void decrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
 
-    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
-    articulo.decrementarStock(cantidad);
+//    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+    getCodigo(codigo).decrementarStock(cantidad);
 
   }
 
