@@ -2,7 +2,7 @@ package examenSegundoTrimestreJava.Ejercicio1.negocio;
 
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
-
+ 
 /**
  * Crea el programa GESTISIMAL (GESTIón SIMplificada de Almacén) para llevar el
  * control de los artículos de un almacén. De cada artículo se debe saber el
