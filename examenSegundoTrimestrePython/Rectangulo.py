@@ -30,7 +30,7 @@ class Rectangulo:
     @property
     def ancho(self):
         
-        return self.__ancho  # alternativa a getter en java
+        return self.__ancho
     
     @ancho.setter
     def ancho(self, ancho):
