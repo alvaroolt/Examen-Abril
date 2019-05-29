@@ -107,7 +107,7 @@ public class Almacen {
    * @throws IvaInvalidoException
    */
   public void modificarArticulo(Articulo articulo, String descripcion, double precioCompra, double precioVenta,
-      int stock, IVA iva) throws ValorNoPositivoException, IvaInvalidoException {
+      int stock, IVA iva) throws ArticuloNoExisteException, ValorNoPositivoException, IvaInvalidoException {
 
     articulo.modificarArticulo(descripcion, precioCompra, precioVenta, stock, iva);
 
