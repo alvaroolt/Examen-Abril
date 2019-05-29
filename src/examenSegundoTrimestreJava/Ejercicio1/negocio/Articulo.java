@@ -1,5 +1,6 @@
 package examenSegundoTrimestreJava.Ejercicio1.negocio;
 
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ArticuloNoExisteException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
 
@@ -128,7 +129,7 @@ public class Articulo {
   private void setPrecioCompra(double precioCompra) throws ValorNoPositivoException {
     if (precioCompra < 0)
       throw new ValorNoPositivoException("Precio de compra no puede ser negativo.");
-    
+
     this.precioCompra = precioCompra;
   }
 

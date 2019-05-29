@@ -2,6 +2,7 @@ package examenSegundoTrimestreJava.Ejercicio1.negocio;
 
 import java.util.ArrayList;
 
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ArticuloNoExisteException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
 
@@ -87,7 +88,7 @@ public class Almacen {
    * 
    * @param codigo
    */
-  public void darBaja(int codigo) {
+  public void darBaja(int codigo) throws ArticuloNoExisteException {
 
     almacen.remove(new Articulo(codigo));
 
@@ -109,7 +110,6 @@ public class Almacen {
       int stock, IVA iva) throws ValorNoPositivoException, IvaInvalidoException {
 
     articulo.modificarArticulo(descripcion, precioCompra, precioVenta, stock, iva);
-    // almacen.set(indice, almacen.get(indice));
 
   }
 
@@ -119,8 +119,9 @@ public class Almacen {
    * @param codigo
    * @param cantidad
    * @throws ValorNoPositivoException
+   * @throws ArticuloNoExisteException
    */
-  public void incrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
+  public void incrementarStock(int codigo, int cantidad) throws ValorNoPositivoException, ArticuloNoExisteException {
 
 //    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
     getCodigo(codigo).incrementarStock(cantidad);
@@ -133,8 +134,9 @@ public class Almacen {
    * @param codigo
    * @param cantidad
    * @throws ValorNoPositivoException
+   * @throws ArticuloNoExisteException
    */
-  public void decrementarStock(int codigo, int cantidad) throws ValorNoPositivoException {
+  public void decrementarStock(int codigo, int cantidad) throws ValorNoPositivoException, ArticuloNoExisteException {
 
 //    Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
     getCodigo(codigo).decrementarStock(cantidad);
@@ -146,10 +148,16 @@ public class Almacen {
    * 
    * @param codigo
    * @return
+   * @throws ArticuloNoExisteException
    */
-  public Articulo getCodigo(int codigo) {
+  public Articulo getCodigo(int codigo) throws ArticuloNoExisteException {
 
-    return almacen.get(almacen.indexOf(new Articulo(codigo)));
+    try {
+      return almacen.get(almacen.indexOf(new Articulo(codigo)));
+    } catch (IndexOutOfBoundsException e) {
+
+      throw new ArticuloNoExisteException("El artículo no existe.");
+    }
 
   }
 

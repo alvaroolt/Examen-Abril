@@ -5,6 +5,7 @@ import java.io.IOException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.Almacen;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.Articulo;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.IVA;
+import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ArticuloNoExisteException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.IvaInvalidoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ParametroNoNumericoException;
 import examenSegundoTrimestreJava.Ejercicio1.negocio.excepciones.ValorNoPositivoException;
@@ -133,7 +134,7 @@ public class TestAlmacen {
 
     } catch (ValorNoPositivoException | IvaInvalidoException | NumberFormatException | EnteroNoValidoException e) {
 
-      System.err.println("Hubo algún problema al añadir el artículo.\n" + e.getMessage());
+      System.err.println("Error al añadir el artículo.\n" + e.getMessage());
 
 //    } catch (Exception e) {
 //
@@ -148,13 +149,11 @@ public class TestAlmacen {
 
     try {
 
-      int codigo = Teclado.leerEntero("Introduce el código identificador del artículo a eliminar: ");
+      almacen.darBaja(Teclado.leerEntero("Introduce el código identificador del artículo a eliminar: "));
 
-      almacen.darBaja(codigo);
-
-    } catch (Exception e) { // si no existe el codigo, salta el catch
-
-      System.err.println("El artículo no se encuentra en el almacén.\n");
+    } catch (ArticuloNoExisteException | NumberFormatException | EnteroNoValidoException e) { // si no existe el codigo,
+                                                                                              // salta el catch
+      System.err.println("El artículo no se encuentra en el almacén. " + e.getMessage());
 
     }
 
@@ -167,29 +166,16 @@ public class TestAlmacen {
 
     try {
 
-      int codigo = Teclado.leerEntero("Introduce el código identificador del artículo a modificar: ");
-      Articulo articulo = almacen.getCodigo(codigo);
+      almacen.modificarArticulo(
+          almacen.getCodigo(Teclado.leerEntero("Introduce el código identificador del artículo a modificar: ")),
+          Teclado.leerCadena("Introduce una breve descripción del artículo:"),
+          Teclado.leerDecimal("Precio de compra del artículo: "), Teclado.leerDecimal("Precio de venta del artículo: "),
+          Teclado.leerEntero("Cantidad del artículo en stock: "), elegirIVA());
 
-      String descripcion = Teclado.leerCadena("Introduce una breve descripción del artículo:");
+    } catch (ArticuloNoExisteException | ValorNoPositivoException | NumberFormatException | EnteroNoValidoException
+        | IvaInvalidoException e) {
 
-      double precioCompra = Teclado.leerDecimal("Precio de compra del artículo: ");
-
-      double precioVenta = Teclado.leerDecimal("Precio de venta del artículo: ");
-
-      int stock = Teclado.leerEntero("Cantidad del artículo en stock: ");
-
-      // menuIva();
-      IVA iva = elegirIVA();
-
-      almacen.modificarArticulo(articulo, descripcion, precioCompra, precioVenta, stock, iva);
-
-    } catch (ValorNoPositivoException e) {
-
-      System.err.println("Hubo algún problema al añadir el artículo.\n" + e.getMessage());
-
-    } catch (Exception e) {
-
-      System.err.println("Introdujiste valores erróneos.");
+      System.err.println("Error al modificar el artículo. " + e.getMessage());
     }
   }
 
@@ -205,13 +191,11 @@ public class TestAlmacen {
 
       Articulo articulo = almacen.getCodigo(codigo);
 
-      int cantidad = Teclado
-          .leerEntero("Introduce cuánto stock nuevo hay en el almacén (" + articulo.getStock() + " actuales): ");
-
-      almacen.incrementarStock(codigo, cantidad);
+      almacen.incrementarStock(codigo, Teclado
+          .leerEntero("Introduce cuánto stock nuevo hay en el almacén (" + articulo.getStock() + " actuales): "));
       System.out.println("Stock añadido correctamente.");
 
-    } catch (Exception e) {
+    } catch (ArticuloNoExisteException | EnteroNoValidoException | ValorNoPositivoException e) {
 
       System.err.println("Hubo algún problema al incrementar el stock.\n" + e.getMessage());
 
@@ -230,13 +214,11 @@ public class TestAlmacen {
 
       Articulo articulo = almacen.getCodigo(codigo);
 
-      int cantidad = Teclado
-          .leerEntero("Introduce cuánto stock se ha eliminado del almacén (" + articulo.getStock() + " actuales): ");
-
-      almacen.decrementarStock(codigo, cantidad);
+      almacen.decrementarStock(codigo, Teclado
+          .leerEntero("Introduce cuánto stock se ha eliminado del almacén (" + articulo.getStock() + " actuales): "));
       System.out.println("Stock eliminado correctamente.");
 
-    } catch (Exception e) {
+    } catch (ArticuloNoExisteException | EnteroNoValidoException | ValorNoPositivoException e) {
 
       System.err.println("Hubo algún problema al decrementar el stock.\n" + e.getMessage());
 
@@ -260,11 +242,10 @@ public class TestAlmacen {
     case 2:
       return IVA.REDUCIDO;
 
-    case 3:
+    default:
       return IVA.SUPER_REDUCIDO;
     }
 
-    return null;
   }
 
 }
